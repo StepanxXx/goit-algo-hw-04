@@ -4,12 +4,13 @@
 
 from sorting_algorithms import merge
 
-def merge_k_lists(lists):
+
+def merge_k_lists(sorted_lists):
     """
     Об'єднує k відсортованих списків у один відсортований список
     """
-    merged = lists[0]
-    for lst in lists[1:]:
+    merged = sorted_lists[0]
+    for lst in sorted_lists[1:]:
         merged = merge(merged, lst)
 
     print("Відсортований список:", merged)
