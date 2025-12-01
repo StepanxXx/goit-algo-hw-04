@@ -27,6 +27,8 @@ def generate_nearly_sorted_data(size):
     data = list(range(size))
     # Перемішуємо 10% елементів
     swaps = size // 10
+
+    
     for _ in range(swaps):
         i, j = random.randint(0, size - 1), random.randint(0, size - 1)
         data[i], data[j] = data[j], data[i]
@@ -36,20 +38,13 @@ def generate_nearly_sorted_data(size):
 def measure_time(algorithm, data, number=10):
     """
     Вимірює час виконання алгоритму
-
-    Args:
-        algorithm: функція сортування
-        data: дані для сортування
-        number: кількість повторень для усереднення
-
-    Returns:
-        середній час виконання в секундах
     """
-    # Створюємо копію даних для кожного виміру
-    copy_data = data.copy()
-    timer = timeit.Timer(lambda: algorithm(copy_data))
-    time_taken = timer.timeit(number=number) / number
-    return time_taken
+    result = []
+    for _ in range(number):
+        copy_data = data.copy()
+        timer = timeit.Timer(lambda d=copy_data: algorithm(d))
+        result.append(timer.timeit(number=1))
+    return sum(result) / number
 
 
 def run_performance_tests():
