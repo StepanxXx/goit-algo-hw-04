@@ -2,22 +2,18 @@
 Об'єднання k відсортованих списків у один відсортований список
 """
 
-from sorting_algorithms import merge_sort
-
+from sorting_algorithms import merge
 
 def merge_k_lists(lists):
     """
     Об'єднує k відсортованих списків у один відсортований список
     """
-    # Об'єднуємо всі списки в один
-    merged = []
-    for lst in lists:
-        merged.extend(lst)
-    
-    # Сортуємо за допомогою merge_sort
+    merged = lists[0]
+    for lst in lists[1:]:
+        merged = merge(merged, lst)
 
     print("Відсортований список:", merged)
-    return merge_sort(merged)
+    return merged
 
 
 if __name__ == "__main__":
