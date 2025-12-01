@@ -46,7 +46,8 @@ def measure_time(algorithm, data, number=10):
         середній час виконання в секундах
     """
     # Створюємо копію даних для кожного виміру
-    timer = timeit.Timer(lambda: algorithm(data.copy()))
+    copy_data = data.copy()
+    timer = timeit.Timer(lambda: algorithm(copy_data))
     time_taken = timer.timeit(number=number) / number
     return time_taken
 
