@@ -73,6 +73,7 @@ def run_performance_tests():
         'Майже відсортовані': generate_nearly_sorted_data
     }
 
+    print("")
     print("=" * 100)
     print("ПОРІВНЯЛЬНИЙ АНАЛІЗ АЛГОРИТМІВ СОРТУВАННЯ")
     print("=" * 100)
@@ -150,7 +151,7 @@ def run_performance_tests():
             f"{size:<15} {merge_time:.6f} с{' ' * 14} "
             f"{insertion_time:.6f} с{' ' * 14} {timsort_time:.6f} с"
         )
-
+    print("")
 
 if __name__ == "__main__":
     # Встановлюємо seed для відтворюваності результатів
